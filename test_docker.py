@@ -1,5 +1,6 @@
 from selenium import webdriver
 import time
+import re
 
 CHROME_DRIVER = "C://Users//Anna//Downloads//chromedriver_win32//chromedriver.exe"
 SITE_NAME = "http://192.168.99.100:5000/"
@@ -16,8 +17,11 @@ time.sleep(2)
 
 # Find string
 element = driver.find_element_by_css_selector("body")
+
+#Remove the word “World” from printing
+string = re.sub('World', '', element.text)
 # Print string
-print("String is:", element.text)
+print("String is:", string)
 
 # Closing current tab
 driver.close()
